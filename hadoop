@@ -10,3 +10,4 @@ Extra: Hard disk consists of blocks on one sector and one block is 4KB. There ar
 If i try to save 2 KB of file than 2 KB will be wasted.
 **
 So if you store a file of size 35MB than 29MB won't be wasted by Hadoop but it will be released for other files.
+Eg: for 500 GB hard disk, 7500 blocks will be given.
