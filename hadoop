@@ -1,7 +1,7 @@
 What is streaming access pattern?
 Write once and read any number of times but don't try to change the content of the file once you are keeping in the HDFS.
 
-On top of Hard disk we are creating HDFS.
+On top of Hard disk we are creating HDFS. It is built on top of normal file system.
 Default Block size is 64MB
 So for processing huge datasets Haoop is using 64MB block size and not default block size of 4Kb on hard disk.
 
@@ -24,3 +24,7 @@ Job Tracker(JT)
 Slave Services: Similarly, TT can talk to JT and vice versa. TT can talk to DN.
 Data node,(DN)
 Task Tracker(TT)
+
+------------------------------------------------------------------------------------------------------------------
+
+Example scenario
