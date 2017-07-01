@@ -43,3 +43,12 @@ So NN acts as a Manager and client sends a request to NN. It stores the metadata
 **
 Extra: So all these DN are cheap commodity hardwares, so every DN will be there with 300 or 500GB of HD capacity for example.
 If it is 500Gb HD than 7500 blocks will be there.
+So out of all these blocks it will try to keep this a.txt file in one of the 7500 blocks.
+**
+**
+Extra: If DN fails, this HDFS has been given 3 replications bydefault.
+So now 200MB of file will take 600MB space in total at 3 different DN. Like 200MB at each DN to achieve redundancy and backup.
+TO overcome data loss problem.
+**
+
+4) So now DN1 will keep a.txt file in some other system(node) say DN2
