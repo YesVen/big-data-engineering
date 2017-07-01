@@ -12,3 +12,15 @@ Hadoop Administrator should take care of this HDFS and its configuration and not
 **
 So if you store a file of size 35MB than 29MB won't be wasted by Hadoop but it will be released for other files.
 Eg: for 500 GB hard disk, 7500 blocks will be given.
+-----------------------------------------------------------------------------------------------------------------
+
+Hadoop Architecture
+
+Master Services: They can talk to each other. Eg: NN can talk to SNN, JT. NN can talk to it's corresponding DN and vice versa but not to TT.
+Name node,(NN)
+Secondary Name node,(SNN)
+Job Tracker(JT)
+
+Slave Services: Similarly, TT can talk to JT and vice versa. TT can talk to DN.
+Data node,(DN)
+Task Tracker(TT)
