@@ -28,7 +28,7 @@ Task Tracker(TT)
 
 ------------------------------------------------------------------------------------------------------------------
 
-Example scenario
+Example scenario of how storage is done.
 So we are going to store a file name file.txt 200 MB of file on Hadoop.
 So 4 blocks will be given to this 200 MB file. 64*3 + 8MB = 200MB.
 So NN will take care of splitting this 200MB of file into 64MB blocks.
@@ -62,3 +62,9 @@ TO overcome data loss problem.
 7) NN will log the system number for that block.
    For eg: Metadata will store that a.txt file is stored in DN1 and its replications are stored in DN2 and DN3.
    In the same way client keeps b.txt, c.txt and d.txt
+   
+**
+Extra: So suppose at any point of time some DN1 stops sending HEART_BEAT to NN, i.e, DN is dead than NN thinks that DN1 is dead.
+So NN removes the metatdata of DN1 from its hard disk. Basically, it is removing DN1's entry in metadata for a.txt file.
+But now the replication factor is 3 so NN will choose some other DN(for ex. DN7) out of all these DNs and put/update the entry of metadata for a.txt file.
+and than DN7 starts sending HEART_BEAT to NN.
