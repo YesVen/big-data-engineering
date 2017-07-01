@@ -59,3 +59,6 @@ TO overcome data loss problem.
 6) Now every DN will give proper Block_Report and Heart_Beat back to the NN for every short period of time.
    Block_Report: some client has stored some block in my local DN
    Heart_Beat: we are still alive, processing and working properly.
+7) NN will log the system number for that block.
+   For eg: Metadata will store that a.txt file is stored in DN1 and its replications are stored in DN2 and DN3.
+   In the same way client keeps b.txt, c.txt and d.txt
