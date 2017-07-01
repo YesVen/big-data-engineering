@@ -1,0 +1,2 @@
+What is streaming access pattern?
+Write once and read any number of times but don't try to change the content of the file once you are keeping in the HDFS.
