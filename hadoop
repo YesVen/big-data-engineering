@@ -1,3 +1,4 @@
+https://www.youtube.com/watch?v=DLutRT6K2rM
 What is streaming access pattern?
 Write once and read any number of times but don't try to change the content of the file once you are keeping in the HDFS.
 
@@ -52,3 +53,9 @@ TO overcome data loss problem.
 **
 
 4) So now DN1 will keep a.txt file in some other system(node) say DN2
+   So now this DN2 will keep the same a.txt file in some other node say DN4(it can be any random node which has free space).
+5) DN4 sends acknowledgement to DN2 and DN2 to DN1 and DN1 to client and 
+   says(sends acknowledgement to) client that file a.txt has been stored to DN1 and DN2, DN4 also.
+6) Now every DN will give proper Block_Report and Heart_Beat back to the NN for every short period of time.
+   Block_Report: some client has stored some block in my local DN
+   Heart_Beat: we are still alive, processing and working properly.
