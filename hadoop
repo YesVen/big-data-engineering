@@ -68,3 +68,7 @@ Extra: So suppose at any point of time some DN1 stops sending HEART_BEAT to NN, 
 So NN removes the metatdata of DN1 from its hard disk. Basically, it is removing DN1's entry in metadata for a.txt file.
 But now the replication factor is 3 so NN will choose some other DN(for ex. DN7) out of all these DNs and put/update the entry of metadata for a.txt file.
 and than DN7 starts sending HEART_BEAT to NN.
+**
+**
+Extra: What will happen if that metadata is going to be lost.?
+If there is no metadata, there is no use with that hadoop. Your HDFS will never be working.
