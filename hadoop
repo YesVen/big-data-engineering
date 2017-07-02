@@ -72,3 +72,26 @@ and than DN7 starts sending HEART_BEAT to NN.
 **
 Extra: What will happen if that metadata is going to be lost.?
 If there is no metadata, there is no use with that hadoop. Your HDFS will never be working.
+Metadata will be stored in NN's hard disk.
+**
+
+*****
+Important: Why there is 64MB and not 4KB of block size?
+Because if Block size is 4Kb than to store 200Mb of data, 50,000 .txt files will be created and NN will have to log
+50,000 metadata records(So it has to create metadata for 50,000 blocks) which is large compared to 4 metadata records in 64MB case. And for 500GB only 7500 blocks are there.
+In this way it occupies less memory in NN
+*****
+
+
+
+
+
+
+
+
+
+
+
+
+
+
