@@ -81,7 +81,11 @@ Because if Block size is 4Kb than to store 200Mb of data, 50,000 .txt files will
 50,000 metadata records(So it has to create metadata for 50,000 blocks) which is large compared to 4 metadata records in 64MB case. And for 500GB only 7500 blocks are there.
 In this way it occupies less memory in NN
 So huge block sizes less metadata.
+
+NN: is also called a single point of failure (SPOF) is a part of a system that, if it fails, will stop the entire system from working. 
+SPOFs are undesirable in any system with a goal of high availability or reliability
 *****
+
 
 
 
