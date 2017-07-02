@@ -85,9 +85,14 @@ So huge block sizes less metadata.
 NN: is also called a single point of failure (SPOF) is a part of a system that, if it fails, will stop the entire system from working. 
 SPOFs are undesirable in any system with a goal of high availability or reliability
 *****
+-----------------------------------------------------------------------------------------------------------------------
 
-
-
+Example scenario of processing the above stored data.
+1) JobTracker(JT) will take the request(10Kb of program we wrote to query the data stored on hadoop).
+   JT doesn't know what all DNs are having what blocks, because there is no communication between JT and DN.
+2) JT is trying to send request to the NN and saying that, 
+   "Some client wanted to process File.txt file and he has given me some program.
+   I wanted to apply that program on File.txt file. I am unaware about what blocks we are having and where does thse blocks reside."
 
 
 
