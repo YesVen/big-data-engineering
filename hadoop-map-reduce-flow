@@ -1,0 +1,14 @@
+https://www.youtube.com/watch?v=6OemZEJdMp8&t=1675s
+For every input-split and mapper there will be one RecordReader(It is an interface).
+In Hadoop technology, you should not call line, lines are called as records.
+
+RecordReader will read one line from the input-split and convert it into key-value-pair.
+There are 4 formats of your file that RecordReader understands: Files should be either of these 4 formats:
+1)TextInputFormat (by default)
+2)KeyValueTextInputFormat
+3)SequenceFileInputFormat
+4)SequenceFileAsTextInputFormat
+
+ByteOffset is the address of the line.
+Number of lines in your input split, those many times your mapper would be running.
+2 Lines in input-split, so 2 key-value pairs will be generated.
