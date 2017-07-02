@@ -29,11 +29,11 @@ Task Tracker(TT)
 ------------------------------------------------------------------------------------------------------------------
 
 Example scenario of how storage is done.
-So we are going to store a file name file.txt 200 MB of file on Hadoop.
+So we are going to store a file name File.txt 200 MB of file on Hadoop.
 So 4 blocks will be given to this 200 MB file. 64*3 + 8MB = 200MB.
 So NN will take care of splitting this 200MB of file into 64MB blocks.
 
-So NN acts as a Manager and client sends a request to NN. It stores the metadata about the file name file.txt
+So NN acts as a Manager and client sends a request to NN. It stores the metadata about the file name File.txt
 1) NN receives the request and stores details in its meta data. 
    Details like 4 files will be created named a.txt, b.txt, c.txt --> 64MB 
    and d.txt --> 8MB.
@@ -92,7 +92,25 @@ Example scenario of processing the above stored data.
    JT doesn't know what all DNs are having what blocks, because there is no communication between JT and DN.
 2) JT is trying to send request to the NN and saying that, 
    "Some client wanted to process File.txt file and he has given me some program.
-   I wanted to apply that program on File.txt file. I am unaware about what blocks we are having and where does thse blocks reside."
+   I wanted to apply that program on File.txt file. I am unaware about what all blocks we are having and where does thse blocks reside.
+   If you can give me those details from your metadata than i can start processing that data."
+   Something like this JT will give request to the NN.
+3) Now the NN will check it up that if the File.txt is there in his metadata or not.
+   This metadata will be given to JT by NN. So now JT has all information about the File.txt.
+   
+   **
+   Extra: JT role is to assign task to TT
+   **
+4) Now the JT will see where that a.txt file is available. It is avaible in DN1, DN2, DN4
+   So it(JT) will send request to it's nearer DN so that request can be sent in less time.
+5) Now this JT will assign(send request) this task to TT1. It will say that 
+   "Hey TT please take this 10kb of program and start working/computing/processing on that."
+   TT1 is applying that computation on a.txt file.
+   
+*****
+Important: Applying that program on your local a.txt file is a process.This process we are calling it as MAP.
+*****
+
 
 
 
