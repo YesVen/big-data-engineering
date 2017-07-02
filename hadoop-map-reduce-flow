@@ -12,3 +12,5 @@ There are 4 formats of your file that RecordReader understands: Files should be 
 ByteOffset is the address of the line.
 Number of lines in your input split, those many times your mapper would be running.
 2 Lines in input-split, so 2 key-value pairs will be generated.
+
+If it is a KeyValueTextInputFormat file than it is taking both Key and vaue as Text and Key will be first value before first tab space.
