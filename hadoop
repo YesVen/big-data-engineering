@@ -18,7 +18,7 @@ Eg: for 500 GB hard disk, 7500 blocks will be given.
 Hadoop Architecture
 
 Master Services: They can talk to each other. Eg: NN can talk to SNN, JT. NN can talk to it's corresponding DN and vice versa but not to TT.
-Name node,(NN)
+Name node,(NN) -- It should be a highly reliable hardware.
 Secondary Name node,(SNN)
 Job Tracker(JT)
 
@@ -80,6 +80,7 @@ Important: Why there is 64MB and not 4KB of block size?
 Because if Block size is 4Kb than to store 200Mb of data, 50,000 .txt files will be created and NN will have to log
 50,000 metadata records(So it has to create metadata for 50,000 blocks) which is large compared to 4 metadata records in 64MB case. And for 500GB only 7500 blocks are there.
 In this way it occupies less memory in NN
+So huge block sizes less metadata.
 *****
 
 
