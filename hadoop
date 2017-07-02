@@ -34,7 +34,7 @@ So 4 blocks will be given to this 200 MB file. 64*3 + 8MB = 200MB.
 So NN will take care of splitting this 200MB of file into 64MB blocks.
 
 So NN acts as a Manager and client sends a request to NN. It stores the metadata about the file name File.txt
-1) NN receives the request and stores details in its meta data. 
+1) NN receives the request and store details in its meta data. 
    Details like 4 files will be created named a.txt, b.txt, c.txt --> 64MB 
    and d.txt --> 8MB.
 2) So NN says to client that please go and store your file in DN number 1,3,5,7
