@@ -82,7 +82,7 @@ Because if Block size is 4Kb than to store 200Mb of data, 50,000 .txt files will
 In this way it occupies less memory in NN
 So huge block sizes less metadata.
 
-NN: is also called a single point of failure (SPOF) is a part of a system that, if it fails, will stop the entire system from working. 
+NN and JT: is also called a single point of failure (SPOF) is a part of a system that, if it fails, will stop the entire system from working. 
 SPOFs are undesirable in any system with a goal of high availability or reliability
 *****
 -----------------------------------------------------------------------------------------------------------------------
@@ -109,11 +109,45 @@ Example scenario of processing the above stored data.
    
 *****
 Important: Applying that program on your local a.txt file is a process.This process we are calling it as MAP.
+File.txt is input file and a.txt, b.txt, c.txt, d.txt are input splits.
+So number of input splits is equal to those many MAPPERS are running in your cluster.
+*****
+*****
+Important: Now when the TT(DN1) is processing and suddenly that DN is dead/disturbed/crashed than this TT(DN1) will just message the 
+JT that he can't process the task. So now the JT will give same task to some other TT(DN3) who has that same data/same a.txt file in it's DN.
+*****
+*****
+Important: How the JT(master) will know that TT(slaves) is dead?
+So all these TTs will give HEART_BEAT to JT every 3 seconds to say that they are still alive and working properly.
+So JT will wait for 10 HEART_BEATS (30 seconds). If no response than it means dead or working slowly.
+*****
+Important: When is the TT running really slow?
+So sometimes there is 100s of request coming to the same TT(DN1) so the same TT will be running 100 MAPPERS at the same time.
+So out of 7500 blocks, 100 clients are running 100 MAPPERS. It is processing 100 request so it is working slowly.
+So it cannot give proper HEART_BEAT
+So it can give task to DN which is far away.(Think like a LOAD_BALANCER thing)
+*****
+Important: Maintain a reliably good hardware system for JT because if it is down than all the Tasks will be disturbed and 
+data won't be processed.
+
+6) Now suppose a.txt is giving 4KB of output, b.txt 4KB, c.txt 3KB, d.txt 1KB. So this is giving 
+   12KB of output for this File.txt(200MB)
+
+REDUCER will come and combine all your output. By default, 1 reducer will be there.
+
+*****
+IMPORTANT: number of REDUCER is equal to number of number of output files.
+           number of MAPPER is equal to number of input splits.
 *****
 
+Let's assume REDUCER will be there in DN8, than ouput will be given in that local DN itself.
+7) So now when this DN8 is giving HEART_BEAT to the NN, it will say that
+"Some client has processed this data and the output directory is in <TEST_OUTPUT> directory of DN8"
+ NN will store the output directory and DN number in it's metadata.
 
-
-
+8) When 100% processing is done, client will contact NN and NN will see in it's metadata that File.txt's output is at the above <TEST_OUTPUT> directory.
+   So now it returns  info to client.
+   Client now contacts DN8 and he will gets it output from there.
 
 
 
