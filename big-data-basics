@@ -1,0 +1,11 @@
+Map-Reduce origin:
+MapReduce derives its ideas and inspiration from concepts in the world of functional programming.
+ Map and reduce are commonly used functions in the world of functional programming.
+ In functional programming, a map function applies an operation or a function to each element in a list.
+ For example, a multiply-by-two function on a list
+ [1, 2, 3, 4] would generate another list as follows: [2, 4, 6, 8].
+ When such functions are applied, the original list is not altered.
+ Functional programming believes in keeping data immutable and avoids sharing data among multiple
+processes or threads.
+ This means the map function that was just illustrated, trivial as it may be, could be run via 2 or more multiple
+threads on the list and these threads would not step on each other, because the list itself is not altered.
