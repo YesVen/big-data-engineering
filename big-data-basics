@@ -33,3 +33,5 @@ Google's BigTable:
  Columns themselves need no a-priori defi nition or declaration.
  Also, columns are capable of storing any data types as far as the data can be persisted to an array of
   bytes.
+  All data pertaining to a row-key is stored together. The column-family acts as a key for the columns it contains and 
+  the row-key acts as the key for the whole dataset.
