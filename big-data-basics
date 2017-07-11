@@ -1,4 +1,4 @@
-Map-Reduce origin:
+Map origin:
 MapReduce derives its ideas and inspiration from concepts in the world of functional programming.
  Map and reduce are commonly used functions in the world of functional programming.
  In functional programming, a map function applies an operation or a function to each element in a list.
@@ -9,3 +9,12 @@ MapReduce derives its ideas and inspiration from concepts in the world of functi
 processes or threads.
  This means the map function that was just illustrated, trivial as it may be, could be run via 2 or more multiple
 threads on the list and these threads would not step on each other, because the list itself is not altered.
+
+Reduce origin:
+Like the map function, functional programming has a concept of a reduce function.
+ Actually, a reduce function in functional programming is more commonly known as a fold function.
+ A reduce or a fold function is also sometimes called an accumulate, compress, or inject function.
+ A reduce or fold function applies a function on all elements of a data structure, such as a list, and
+produces a single result or output.
+ So applying a reduce function-like summation on the list generated out of the map function, that is, [2, 4,
+6, 8], would generate an output equal to 20.
