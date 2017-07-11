@@ -21,11 +21,15 @@ produces a single result or output.
 
 
 Google's BigTable:
-Google’s Bigtable adopts a model where data in stored in a column-oriented way.
-It avoids consuming space when storing nulls by simply not storing a column when a value doesn’t exist
-for that column.
-Each unit of data can be thought of as a set of key/value pairs, where the unit itself is identified with the
-help of a primary identifier, often referred to as the primary key.
+ Google’s Bigtable adopts a model where data in stored in a column-oriented way.
+ It avoids consuming space when storing nulls by simply not storing a column when a value doesn’t exist
+ for that column.
+ Each unit of data can be thought of as a set of key/value pairs, where the unit itself is identified with the
+ help of a primary identifier, often referred to as the primary key.
  Bigtable and its clones tend to call this primary key the row-key.
  Also, as the title of this subsection suggests, units are stored in an ordered-sorted manner
-Column-families are typically defined at configuration or startup time.
+ Column-families are typically defined at configuration or startup time.
+ Column-families are typically defined at configuration or startup time.
+ Columns themselves need no a-priori defi nition or declaration.
+ Also, columns are capable of storing any data types as far as the data can be persisted to an array of
+  bytes.
