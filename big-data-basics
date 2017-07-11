@@ -35,3 +35,9 @@ Google's BigTable:
   bytes.
   All data pertaining to a row-key is stored together. The column-family acts as a key for the columns it contains and 
   the row-key acts as the key for the whole dataset.
+
+
+Document database:
+At a collection level, this allows for putting together a diverse set of documents into a single collection.
+Document databases allow indexing of documents on the basis of not only its primary identifier but also
+its properties.
