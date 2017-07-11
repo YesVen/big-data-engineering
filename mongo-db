@@ -1,0 +1,2 @@
+If you do not create a table in mongodb than MongoDb creates a table for you when you insert first time into the table.
+Default table name is databases;
