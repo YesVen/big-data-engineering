@@ -18,3 +18,14 @@ Like the map function, functional programming has a concept of a reduce function
 produces a single result or output.
  So applying a reduce function-like summation on the list generated out of the map function, that is, [2, 4,
 6, 8], would generate an output equal to 20.
+
+
+Google's BigTable:
+Google’s Bigtable adopts a model where data in stored in a column-oriented way.
+It avoids consuming space when storing nulls by simply not storing a column when a value doesn’t exist
+for that column.
+Each unit of data can be thought of as a set of key/value pairs, where the unit itself is identified with the
+help of a primary identifier, often referred to as the primary key.
+ Bigtable and its clones tend to call this primary key the row-key.
+ Also, as the title of this subsection suggests, units are stored in an ordered-sorted manner
+Column-families are typically defined at configuration or startup time.
