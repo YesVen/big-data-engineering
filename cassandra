@@ -1,3 +1,10 @@
+CQL syntax:
+Create keyspace <keyspace_name> with 
+replication = {"class": "SimpleStrategy", "replication_factor" : 3};
+
+Create keyspace <keyspace_name> with 
+replication = {"class": "NetworkTopologyStrategy", "west" : 3, "east" : 2};
+
 CLI syntax:
 Create keyspace <keyspace_name> with 
 placement_strategy = "SimpleStrategy"
