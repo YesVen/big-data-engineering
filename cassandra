@@ -1,0 +1,8 @@
+CLI syntax:
+Create keyspace <keyspace_name> with 
+placement_strategy = "SimpleStrategy"
+and strategy_options = {replication_factor:"3"}
+
+Create keyspace <keyspace_name> with 
+placement_strategy = "NetworkTopologyStrategy"
+and strategy_options = {DN:"3"}
