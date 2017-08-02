@@ -1,1 +1,6 @@
-1) Hadoop configuration files are in /etc/hadoop/ folder
+Hadoop configuration files are in /etc/hadoop/ folder
+Step 1:
+  Open hadoop-env.sh and set the JAVA_HOME=usr/local/lib/jdk1.8.0_144
+
+Step2:
+  
