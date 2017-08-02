@@ -1,6 +1,60 @@
+http://doctuts.readthedocs.io/en/latest/hadoop.html
 Hadoop configuration files are in /etc/hadoop/ folder
 Step 1:
   Open hadoop-env.sh and set the JAVA_HOME=usr/local/lib/jdk1.8.0_144
 
 Step2:
+  Open core-site.xml and set following lines:
+  <configuration>
+        <property>
+                <name>fs.defaultFS</name>
+                <value>hdfs://localhost:9000</value> //the name of the default file system, it's port number
+        </property>
+        <property>
+                <name>hadoop.tmp.dir</name>
+                <value>/usr/local/bin/hadoop-tmp</value> 
+                      //A base for other temporary directories.
+                      //There're three HDFS properties which contain hadoop.tmp.dir in their values 
+                      //dfs.name.dir: directory where namenode stores its metadata, with default value ${hadoop.tmp.dir}/dfs/name.
+        </property>
+  </configuration>
+  
+  Step 3: Open hdfs-site.xml
+  <configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+        <description>Default block replication.
+        The actual number of replications can be specified when the file is created.
+        The default is used if replication is not specified in create time.
+        </description>
+    </property>
+  <configuration>
+  
+  Step 4: Open mapred-site.xml
+  https://community.hortonworks.com/questions/17950/yarn-vs-mapreduce.html
+    <configuration>
+      <property>
+          <name>mapreduce.framework.name</name>
+          <value>yarn</value>
+      </property>
+  </configuration>
+  // to run the map-reduce job onn Yarn.
+  // MapReduce is Programming Model, YARN is architecture for distribution cluster
+  // MapReduce run above YARN Architecture
+  // MRv1 uses the JobTracker to create and assign tasks to data nodes, 
+  // which can become a resource bottleneck when the cluster scales out far enough (usually around 4,000 clusters).      
+  // MRv2 (aka YARN, "Yet Another Resource Negotiator") has a Resource Manager for each cluster, 
+  // and each data node runs a Node Manager. For each job, one slave node will act as the Application Master, 
+  // monitoring resources/tasks, etc
+  https://community.hortonworks.com/storage/attachments/2239-yarn-architecture.gif
+  
+  
+  
+  
+  
+  
+  
+
+
   
