@@ -49,8 +49,30 @@ Step2:
   // monitoring resources/tasks, etc
   https://community.hortonworks.com/storage/attachments/2239-yarn-architecture.gif
   
+  Step 5: Open yarn-siite.xml
+  http://doc.mapr.com/display/MapR/yarn-site.xml
+  // This file contains configuration information that overrides the default values for YARN parameters. 
+  // yarn.nodemanager.aux-services
+  // Selects a shuffle service that needs to be set for MapReduce to run.
+  // This property, in conjunction with other properties, sets "direct shuffle" as the default shuffle for MapReduce.
+  <configuration>
+    <property>
+        <name>yarn.nodemanager.aux-services</name>
+        <value>mapreduce_shuffle</value>
+    </property>
+</configuration>
+
+Step 6: Goto /hadoop-2.7.3/bin directory
+run the fllowing command: ./hadoop namenode -format
+This command deletes all files in your hdfs.
+https://stackoverflow.com/questions/27143409/what-the-command-hadoop-namenode-format-will-do
+
+Step 7: Goto hadoop/sbin
+type command ./start-all.sh
+This will bring up HDFS with the Namenode running on the machine.
   
-  
+ Step 8: to close hadoop go to hadoop/sbin
+ type command ./stop-all.sh
   
   
   
